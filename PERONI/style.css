@@ -1,0 +1,242 @@
+
+/* ========================================
+   STILI GENERALI E RESET
+   ======================================== */
+html {
+    scroll-behavior: smooth; /* Effetto di scorrimento fluido */
+}
+/* Stile del corpo della pagina */
+body {
+    margin: 0; /* Rimuove i margini di default del browser */
+    padding: 0; /* Rimuove il padding di default del browser */
+    margin-top: 240px; /* Spazio per compensare header fisso */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack per compatibilità cross-browser */
+    line-height: 1.6; /* Migliora la leggibilità del testo */
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2); /* Sfondo con gradiente */
+    color: black; /* Colore del testo principale */
+}
+/* ========================================
+   HEADER E TESTATA
+   ======================================== */
+/* Stile dell'header */
+header {
+    top: 0; /* Posiziona l'header in cima alla pagina */
+    left: 0; /* Allinea a sinistra */
+    height: 240px; /* Altezza fissa dell'header */
+    position: fixed; /* Mantiene l'header fisso durante lo scroll */
+    width: 100%; /* Occupa tutta la larghezza della finestra */
+    background: url("assets/sfondodicieloegrano1.jpg"); /* Immagine di sfondo */
+    background-size: cover; /* L'immagine copre tutto il contenitore */
+    background-position: center; /* Centra l'immagine di sfondo */
+    color: white; /* Colore del testo nell'header */
+    text-align: center; /* Centra il testo */
+    z-index: 1000; /* Assicura che l'header sia sopra altri elementi */
+    
+    /*text-shadow: 0px 8px 8px; /* Ombra del testo per migliorare la leggibilità */
+}
+/* Stile del titolo principale nell'header */
+header h3 {
+    font-size: 16px; /* Dimensione del font */
+    font-weight: 500; /* Peso del font (medio) */
+    font-style: italic; /* Stile corsivo */
+}
+/* Stile del paragrafo nell'header */
+header p {
+    font-size: 14px; /* Dimensione del font più piccola */
+    font-weight: 500; /* Peso del font (medio) */
+}
+/* ========================================
+   MENU DI NAVIGAZIONE
+   ======================================== */
+/* Stile del menu */
+nav {
+    background: linear-gradient(to right, #2c5530, #3e7c3e); /* Sfondo con gradiente verde */
+    position: fixed; /* Mantiene il menu fisso */
+    left: 0%; /* Allinea a sinistra */
+    top: 240px; /* Posiziona sotto l'header */
+    width: 100%; /* Occupa tutta la larghezza */
+    height: 60px;
+    z-index: 1000; /* Assicura che sia sopra altri elementi */
+    border-bottom: 3px solid #FFD700; /* Bordo inferiore dorato */
+}
+/* Stile della lista del menu principale */
+ul.menu {
+    list-style: none; /* Rimuove i punti elenco */
+    margin: 0; /* Rimuove i margini */
+    padding: 0; /* Rimuove il padding */
+    display: flex; /* Layout flessibile orizzontale */
+    justify-content: center; /* Centra gli elementi del menu */
+}
+/* Stile degli elementi del menu principale */
+ul.menu > li {
+    position: relative; /* Necessario per posizionare i sottomenu */
+}
+/* Stile dei link del menu principale */
+ul.menu > li > a {
+    display: block; /* Fa occupare tutto lo spazio disponibile */
+    padding: 16px 24px; /* Spaziatura interna per area cliccabile più grande */
+    color: white; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-weight: 500; /* Peso del font medio */
+    transition: all 0.3s ease; /* Tempo di transizione per effetto hover */
+    border-bottom: 2px solid transparent; /* Bordo inferiore trasparente per effetto hover */
+}
+/* Effetto hover per i link del menu principale */
+ul.menu > li:hover > a {
+    background: linear-gradient(to right, rgba(215,215,0,0.2), rgba(255,215,0,0.1)); /* Sfondo dorato trasparente */
+    border-bottom-color: #FFD700; /* Bordo inferiore dorato */
+    transform: translateY(-3px); /* Leggero movimento verso l'alto */
+}
+/* ========================================
+   SOTTOMENU
+   ======================================== */
+/* Stile dei sottomenu */
+ul.submenu {
+    display: none; /* Nascosto di default */
+    position: absolute; /* Posizionamento assoluto rispetto al genitore */
+    top: 100%; /* Posiziona sotto l'elemento genitore */
+    left: 0; /* Allinea a sinistra */
+    background: linear-gradient(to right, #34495e, #2c3e50); /* Sfondo con gradiente scuro */
+    list-style: none; /* Rimuove i punti elenco */
+    margin: 0; /* Rimuove i margini */
+    padding: 0; /* Rimuove il padding */
+    min-width: 200px; /* Larghezza minima */
+    border-radius: 0 0 8px 8px; /* Bordi arrotondati solo in basso */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Ombra per effetto profondità */
+}
+/* Stile dei link nei sottomenu */
+ul.submenu li a {
+    display: block; /* Fa occupare tutto lo spazio disponibile */
+    padding: 12px 20px; /* Spaziatura interna */
+    color: white; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    transition: all 0.3s ease; /* Tempo di transizione per effetto hover*/
+}
+/* Effetto hover per i link dei sottomenu */
+ul.submenu li a:hover {
+    background: linear-gradient(to right, #3498db, #2980b9); /* Sfondo blu con gradiente */
+    padding-left: 24px; /* Aumenta il padding sinistro per effetto movimento */
+}
+/* Mostra il sottomenu al passaggio del mouse */
+ul.menu > li:hover .submenu {
+    display: block; /* Mostra il sottomenu */
+    animation: slideDown 0.3s ease; /* Animazione di discesa */
+}
+/* Animazione per la comparsa del sottomenu */
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    } /* Stato iniziale: trasparente e spostato in alto */
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } /* Stato finale: opaco e nella posizione normale */
+}
+/* ========================================
+   CONTENUTO PRINCIPALE
+   ======================================== */
+/* Stile del main */
+.contenuto-principale {
+    font-size: 20px; /* Dimensione del font per il contenuto */
+    padding: 10px 40px 10px 40px; /* Spaziatura interna */
+    margin: 20px; /* Margini esterni */
+}
+/* ========================================
+   SEZIONI DEL CONTENUTO
+   ======================================== */
+/* Stile delle sezioni */
+.sezione {
+    background: linear-gradient(to left, #f5f7fa, #c3cfe2); /* Sfondo con gradiente invertito rispetto al body */
+    padding: 40px; /* Spaziatura interna delle sezioni */
+    margin-top: 20px; /* Margine superiore */
+    margin-bottom: 20px; /* Margine inferiore */
+}
+.sezione img {
+    border-radius: 5px; /* Bordi arrotondati per le immagini */
+    margin-right: 20px; /* Spaziatura destra per le immagini */
+    margin-bottom: 20px;    /* Spaziatura inferiore per le immagini */
+    float: left; /* Allineamento a sinistra */
+}
+/* Compensazione dello scroll per le sezioni con menu fisso */
+#home, #people, #report, #planet, #portfolio, #profit, #agenda, #goals, #contatti {
+    scroll-margin-top: 300px; /* Spazio per header e menu fissi */
+}
+/* ========================================
+   PULSANTI DI DOWNLOAD
+   ======================================== */
+/* Stile del pulsante di download */
+.pulsante-scarico {
+    display: inline-flex; /* Layout flessibile inline */
+    align-items: center; /* Centra verticalmente il contenuto */
+    padding: 16px 32px; /* Spaziatura interna generosa */
+    background: linear-gradient(to right, #FFD700, #FFA500); /* Sfondo dorato con gradiente */
+    color: #1a472a; /* Colore del testo verde scuro */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    border-radius: 50px; /* Bordi molto arrotondati */
+    font-weight: 700; /* Font in grassetto */
+    font-size: 14px; /* Dimensione del font */
+    transition: all 0.9s ease; /* Tempo di transizione per effetto hover */
+    position: relative; /* Posizionamento relativo */
+    overflow: hidden; /* Nasconde il contenuto che fuoriesce */
+    margin: 20px 0; /* Margini verticali */
+}
+/* Effetto hover per il pulsante di download */
+.pulsante-scarico:hover {
+    background: linear-gradient(to left, #FFD700, #FFA500); /* Inverte la direzione del gradiente */
+    transform: translateY(-5px) scale(1.05); /* Movimento verso l'alto e leggero ingrandimento */
+}
+/* ========================================
+   TABELLA DEGLI OBIETTIVI SDG
+   ======================================== */
+/* Stile della tabella degli obiettivi */
+table {
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    border-collapse: collapse; /* I bordi delle celle sono uniti */
+    color: #2c3e50; /* Colore del testo */
+    overflow: hidden; /* Nasconde il contenuto che fuoriesce */
+}
+/* Stile delle immagini nella tabella (icone SDG) */
+table img {
+    border-radius: 15px; /* Bordi arrotondati */
+    width: 90px;   /* Larghezza fissa */
+    height: 90px;  /* Altezza fissa */
+    margin: 20px; /* Margini intorno all'immaagine */
+}
+/* Stile dell'intestazione della tabella */
+th {
+    background: linear-gradient(to right, #2c5530, #3e7c3e); /* Sfondo verde con gradiente */
+    color: white; /* Colore del testo */
+    font-weight: 500; /* Peso del font medio */
+    font-size: 14px; /* Dimensione del font */
+    padding: 20px; /* Spaziatura interna */
+    border: 1px solid rgba(255,255,255); /* Bordo bianco trasparente */
+}
+/* Stile delle celle della tabella */
+td {
+    font-size: 14px; /* Dimensione del font */
+    font-weight: 500; /* Peso del font medio */
+    padding: 20px 20px ; /* Spaziatura interna */
+    text-align: center; /* Centra il testo */
+    border: 1px solid rgba(255,255,255); /* Bordo bianco trasparente */
+    transition: all 0.9s ease; /* Tempo di transizione per effetto hover */
+}
+/* Effetto hover per le righe della tabella */
+tr:hover td {
+    background: linear-gradient(to right, #FFD700, #FFA500); /* Sfondo dorato con gradiente */
+    color: black; /* Cambia il colore del testo a nero */
+    transform: scale(1.05); /* Leggero ingrandimento */
+}
+/* ========================================
+   FOOTER
+   ======================================== */
+/* Stile del footer */
+footer {
+    background: linear-gradient(to left, #2c5530, #3e7c3e); /* Sfondo con gradiente verde */
+    font-size: 12px; /* Dimensione del font più piccola */
+    color: white;
+    text-align: center; /* Centra il testo */ 
+    border-top: 3px solid #FFD700; /* Bordo superiore dorato */
+    padding: 10px; /* Spaziatura interna */
+}
+
